@@ -23,7 +23,7 @@ public class User {
     private Long id;
 
     @NotBlank(message = "O nome é obrigatório")
-    private String nome;
+    private String name;
 
     @Column(unique = true, nullable = false)
     private String cpf;
@@ -33,7 +33,7 @@ public class User {
     private String email;
 
     @NotBlank(message = "A senha não pode estar em branco")
-    private String senha;
+    private String password;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)

@@ -29,7 +29,12 @@ public class UserPreferences {
     private boolean notifyNearbyEvents = true;
 
     @NotBlank
-    private String theme;
+    private String theme = "LIGHT";
+
+    @Column(nullable = false)
+    private double notificationRadius = 500.0; // A "Distance" em metros do raio (ex: 500m)
+
+
 
 
 }

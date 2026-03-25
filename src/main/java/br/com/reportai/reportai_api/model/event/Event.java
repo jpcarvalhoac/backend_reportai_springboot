@@ -17,7 +17,9 @@ import java.util.List;
 @NoArgsConstructor @AllArgsConstructor @Getter @Setter
 
 @Entity
-@Table(name = "events")
+@Table(name = "events", indexes = {
+        @Index(name = "idx_event_category", columnList = "category")
+})
 
 
 public class Event {
@@ -50,10 +52,6 @@ public class Event {
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<EventImage> images = new ArrayList<>();
 
-    //A lista de imagens do evento
-    @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
-    @OrderBy("createdAt DESC")
-    private List<EventHistory> eventHistories = new ArrayList<>();
 
     @OneToMany(mappedBy = "event", cascade = CascadeType.ALL, orphanRemoval = true)
     @OrderBy("createdAt DESC")

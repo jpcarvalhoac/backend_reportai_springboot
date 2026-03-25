@@ -13,7 +13,10 @@ import java.time.LocalDateTime;
 @AllArgsConstructor @NoArgsConstructor @Getter @Setter
 
 @Entity
-@Table(name ="event_history")
+@Table(name = "event_history", indexes = {
+        @Index(name = "idx_event_history_event_id", columnList = "event_id"),
+        @Index(name = "idx_event_history_created_at", columnList = "created_at") // Bônus: acelera a ordenação por data!
+})
 
 public class EventHistory {
     @Id

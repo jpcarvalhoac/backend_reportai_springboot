@@ -1,5 +1,6 @@
 package br.com.reportai.reportai_api.model.user;
 
+import br.com.reportai.reportai_api.model.enums.user.LevelRankUser;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -32,8 +33,9 @@ public class UserRank {
     @Column(nullable = false)
     private long experiencePoints = 0;
 
+    @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    private int leval = 1;
+    private  LevelRankUser level = LevelRankUser.BRONZE;
 
 
     public void addExperience(int amount) {
